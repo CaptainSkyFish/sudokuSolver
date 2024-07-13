@@ -25,6 +25,7 @@ Square ***setUpPuzzle(int **puzzle)
             sudoku[i][j]->row = i;
             sudoku[i][j]->column = j;
             sudoku[i][j]->solvable = 9;
+
             // tether the box to its squares
             boxes[currentBox]->squares[boxes[currentBox]->numbers] = sudoku[i][j];
             // and squares to its boxes
@@ -37,13 +38,13 @@ Square ***setUpPuzzle(int **puzzle)
             }
 
             // increment the index to current box when three elemnent of currBox are traversed.
-            if ((j + 1) % 3 == 0)
+            if ((j + 1) % 3 == 0 && j < 8)
                 currentBox++;
         }
         // reset the currentBox index to horizontal leftmost(0,3,6).
         currentBox -= 2;
         // unless there is a vertical(e.g. currBox: 2-3, 5-6 ) shift in index.
-        if ((i + 1) % 3 == 0)
+        if ((i + 1) % 3 == 0 && i < 8)
             currentBox = i + 1;
     }
 

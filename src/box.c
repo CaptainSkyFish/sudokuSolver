@@ -16,10 +16,10 @@ Box **createBoxes()
 
         for (j = 0; j < 9; j++)
         {
-            boxes[j]->possible[j] = 0;
+            boxes[i]->possible[j] = 0;
         }
     }
-    return 1;
+    return boxes;
 }
 
 int updateBoxes(Square ***sudoku, int row, int column)
@@ -30,10 +30,12 @@ int updateBoxes(Square ***sudoku, int row, int column)
     Box *box;
     box = sudoku[row][column]->box;
 
-    for (i = o; i < 9; i++)
+    for (i = 0; i < 9; i++)
     {
         if (box->squares[i]->possible[number - 1] == 0)
         {
+            box->squares[i]->solvable--;
+            box->squares[i]->possible[number - 1] = 1;
         }
     }
 }
