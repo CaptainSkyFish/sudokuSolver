@@ -29,14 +29,22 @@ typedef struct Square
   int column;
 } Square;
 
+typedef struct Sudoku
+{
+  struct Square ***squares;
+  struct Box **boxes;
+} Sudoku;
+
 int **createPuzzle();
 
 void printPuzzle(Square ***puzzle);
 
-Square ***setUpPuzzle(int **puzzle);
+Sudoku *setUpPuzzle(int **puzzle);
+
+Sudoku *createSudoku(Square ***squares, Box **boxes);
 
 int solveSquare(Square *square);
-int checkPuzzle(Square ***sudoku);
+int checkPuzzle(Square ***sudoku, Box **boxes);
 int updateSudoku(Square ***sudoku, int row, int column);
 
 /*Box Functions start here*/
