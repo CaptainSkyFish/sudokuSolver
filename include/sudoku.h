@@ -49,7 +49,7 @@ int updateSudoku(Square ***sudoku, int row, int column);
 
 /*Box Functions start here*/
 Box **createBoxes();
-
+int boxSingles(Square ***sudoku, Box **boxes);
 int updateBoxes(Square ***sudoku, int row, int column);
 
 #endif
