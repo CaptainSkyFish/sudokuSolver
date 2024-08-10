@@ -46,6 +46,8 @@ Sudoku *createSudoku(Square ***squares, Box **boxes);
 int solveSquare(Square *square);
 int checkPuzzle(Square ***sudoku, Box **boxes);
 int updateSudoku(Square ***sudoku, int row, int column);
+/*Row fn*/
+int checkRows(Square ***sudoku, Box **boxes);
 
 /*Box Functions start here*/
 Box **createBoxes();
